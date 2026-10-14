@@ -407,7 +407,7 @@ def quick_sort(xs, cmp=cmp_standard, reverse=False):
     def _quick_sort(lo, hi):
         if lo < hi:
             p = partition(lo, hi)
-            _quick_sort(lo, p = 1)
+            _quick_sort(lo, p - 1)
             _quick_sort(p + 1, hi)
     if len(xs) > 1:
         _quick_sort(0, len(xs) - 1)
