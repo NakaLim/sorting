@@ -17,6 +17,7 @@ equivalently, the result of every call to cmp is negated.
 import math
 import random
 
+
 def cmp_standard(a, b):
     '''
     used for sorting from lowest to highest
@@ -51,6 +52,7 @@ def cmp_reverse(a, b):
     if b < a:
         return -1
     return 0
+
 
 def cmp_invert(cmp):
     '''
@@ -158,7 +160,8 @@ def cmp_nan_first(a, b):
         return -1
     if math.isnan(b):
         return 1
-    return cmp_standard(a,b)
+    return cmp_standard(a, b)
+
 
 def _natural_chunks(s):
     '''
@@ -267,6 +270,7 @@ def _merged(xs, ys, cmp=cmp_standard, reverse=False):
     out += ys[j:]
     return out
 
+
 def merge_sorted(xs, cmp=cmp_standard, reverse=False):
     '''
     Merge sort is the standard O(n log n) sorting algorithm.
@@ -299,6 +303,7 @@ def merge_sorted(xs, cmp=cmp_standard, reverse=False):
         left = merge_sorted(xs[:mid], cmp=cmp, reverse=reverse)
         right = merge_sorted(xs[mid:], cmp=cmp, reverse=reverse)
         return _merged(left, right, cmp=cmp, reverse=reverse)
+
 
 def quick_sorted(xs, cmp=cmp_standard, reverse=False):
     '''
@@ -353,6 +358,7 @@ def quick_sorted(xs, cmp=cmp_standard, reverse=False):
     else:
         return sorted_less + equal + sorted_greater
 
+
 def quick_sort(xs, cmp=cmp_standard, reverse=False):
     '''
     The main advantage of quick_sort is that it can be implemented "in-place".
@@ -404,6 +410,7 @@ def quick_sort(xs, cmp=cmp_standard, reverse=False):
                 i += 1
         xs[i], xs[hi] = xs[hi], xs[i]
         return i
+
     def _quick_sort(lo, hi):
         if lo < hi:
             p = partition(lo, hi)

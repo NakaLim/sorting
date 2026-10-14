@@ -55,6 +55,7 @@ def merge_intervals(intervals):
             merged.append(interval[:])
     return merged
 
+
 def rank_teams(votes):
     '''
     LeetCode 1366 -- Rank Teams by Votes
@@ -91,11 +92,13 @@ def rank_teams(votes):
     for vote in votes:
         for i, team in enumerate(vote):
             counts[team][i] += 1
+
     def key(team):
         # negated counts sort descending; the letter breaks ties
         return tuple(-n for n in counts[team]) + (team,)
     teams = sorted(counts, key=key)
     return ''.join(teams)
+
 
 def largest_number(nums):
     '''
@@ -128,6 +131,7 @@ def largest_number(nums):
     if num_to_str[0] == '0':
         return '0'
     return "".join(num_to_str)
+
 
 def two_city_sched_cost(costs):
     '''
